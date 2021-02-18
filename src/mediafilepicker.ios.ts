@@ -27,7 +27,14 @@ export class Mediafilepicker extends Observable implements MediaPickerInterface 
     /**
      * openImagePicker
      */
-    public openImagePicker(params: ImagePickerOptions) {
+    public openImageVideoPicker(params: ImagePickerOptions) {
+        this.openImagePicker(params, true)
+    }
+
+    /**
+     * openImagePicker
+     */
+    public openImagePicker(params: ImagePickerOptions, includeVideos?) {
 
         let options = params.ios, t = this;
 
@@ -49,7 +56,11 @@ export class Mediafilepicker extends Observable implements MediaPickerInterface 
         if (!options.isCaptureMood) {
 
             let picker = DKImagePickerController.new();
-            picker.assetType = DKImagePickerControllerAssetType.AllPhotos;
+            if (includeVideos) {
+                picker.assetType = DKImagePickerControllerAssetType.AllAssets;
+            } else {
+                picker.assetType = DKImagePickerControllerAssetType.AllPhotos;
+            }
             picker.singleSelect = true;
             picker.showsCancelButton = true;
             picker.sourceType = DKImagePickerControllerSourceType.Photo;

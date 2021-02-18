@@ -6,7 +6,8 @@ export declare class Mediafilepicker extends Observable implements MediaPickerIn
     results: any;
     msg: any;
     constructor();
-    openImagePicker(params: ImagePickerOptions): void;
+    openImageVideoPicker(params: ImagePickerOptions): void;
+    openImagePicker(params: ImagePickerOptions, includeVideos?: any): void;
     openVideoPicker(params: VideoPickerOptions): void;
     openAudioPicker(params: AudioPickerOptions): void;
     openFilePicker(params: FilePickerOptions): void;
