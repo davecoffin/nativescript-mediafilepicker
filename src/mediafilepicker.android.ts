@@ -454,7 +454,7 @@ export class Mediafilepicker extends Observable implements MediaPickerInterface 
 
                     let file = {
                         type: 'capturedAudio',
-                        file: cursor.getString(column_index),
+                        file: data.getData().toString(),
                         rawData: rawData
                     };
 
